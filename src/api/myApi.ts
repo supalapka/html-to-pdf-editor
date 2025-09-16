@@ -1,7 +1,7 @@
 import templateToPdfApi from "./axios";
 
 export type Template = {
-  id: string;
+  id: number;
   name: string;
   htmlContent: string;
 };
@@ -16,18 +16,21 @@ export const createTemplate = async (data: { name: string; htmlContent: string }
   return response.data;
 };
 
-export const updateTemplate = async (id: string, data: { name: string; htmlContent: string }) => {
-  const response = await templateToPdfApi.put(`/templates/${id}`, data);
+export const updateTemplate = async (id: number, name: string, htmlContent: string) => {
+  const data = { id, name, htmlContent };
+  const response = await templateToPdfApi.put(`/templates/`, data);
   return response.data;
 };
 
-export const deleteTemplate = async (id: string) => {
+
+export const deleteTemplate = async (id: number) => {
   const response = await templateToPdfApi.delete(`/templates/${id}`);
   return response.data;
 };
 
-export const generatePDF = async (id: string, jsonData: object) => {
-  const response = await templateToPdfApi.post(`/templates/${id}/pdf`, jsonData, {
+
+export const generatePdf = async (id: number) => {
+  const response = await templateToPdfApi.post(`/templates/${id}/pdf`, {}, {
     responseType: "blob",
   });
   return response.data;
