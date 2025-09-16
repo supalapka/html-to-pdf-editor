@@ -1,0 +1,92 @@
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.card-content {
+  margin-top: 10px;
+  min-height: 60px;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.card-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.downloadButton {
+  background-color: #28a745;
+  color: white;
+}
+.downloadButton:hover { background-color: #218838; }
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+}
+.deleteButton:hover { background-color: #c82333; }
+
+.editButton {
+  background-color: #007bff;
+  color: white;
+}
+.editButton:hover { background-color: #0056b3; }
+
+
+.editForm {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.editForm input,
+.editForm textarea {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.editForm textarea {
+  min-height: 80px;
+}
+
+.editForm button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.editForm button:first-of-type {
+  background-color: #4caf50;
+  color: white;
+}
+
+.editForm button:last-of-type {
+  background-color: #f44336;
+  color: white;
+}

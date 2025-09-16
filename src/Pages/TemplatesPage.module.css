@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* центрируем заголовок */
+  position: relative; /* для кнопки слева */
+  margin-bottom: 20px;
+}
+
+.floatingButton {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  z-index: 1000;
+}
+
+.floatingButton:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.floatingButton:active {
+  background-color: #004080;
+  transform: translateY(0);
+}
