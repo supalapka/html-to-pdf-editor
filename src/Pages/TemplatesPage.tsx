@@ -23,6 +23,10 @@ const TemplatesPage: React.FC = () => {
       }
     };
 
+    const handleRemove = (id: number) => {
+      setTemplates(prev => prev.filter(t => t.id !== id));
+    };
+
   useEffect(() => {
     fetchTemplates();
   }, []);
@@ -40,7 +44,7 @@ const TemplatesPage: React.FC = () => {
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
       {templates.map((t) => (
-        <TemplateItem key={t.id} id={t.id} name={t.name} htmlContent={t.htmlContent} />
+        <TemplateItem key={t.id} id={t.id} name={t.name} htmlContent={t.htmlContent} onRemove={handleRemove}/>
       ))}
 
        <CreateTemplateSidebar

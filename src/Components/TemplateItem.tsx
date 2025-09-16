@@ -7,9 +7,10 @@ type TemplateItemProps = {
   id: number;
   name: string;
   htmlContent: string;
+  onRemove: (id:number) => void;
 };
 
-const TemplateItem: React.FC<TemplateItemProps> = ({ id, name, htmlContent }) => {
+const TemplateItem: React.FC<TemplateItemProps> = ({ id, name, htmlContent, onRemove }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(name);
   const [templateName, setTemplateName] = useState(name);
@@ -43,6 +44,7 @@ const TemplateItem: React.FC<TemplateItemProps> = ({ id, name, htmlContent }) =>
   const handleDelete = async () => {
     try {
      deleteTemplate(id)
+     onRemove(id);
     } catch (err) {
       console.error("Failed to delete template", err);
     } 
