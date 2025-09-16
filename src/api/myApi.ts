@@ -35,3 +35,17 @@ export const generatePdf = async (id: number) => {
   });
   return response.data;
 };
+
+export const generatePdfWithSubstitution = async (id: number, data: string) => {
+  const response = await templateToPdfApi.post(
+    `/templates/${id}/pdf/substitution`,
+    data,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      responseType: "blob",
+    }
+  );
+  return response.data;
+};

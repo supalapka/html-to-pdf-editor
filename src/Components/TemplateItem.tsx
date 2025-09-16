@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./TemplateItem.module.css";
-import { generatePdf, deleteTemplate, updateTemplate } from "../api/myApi";
+import { generatePdf, generatePdfWithSubstitution, deleteTemplate, updateTemplate } from "../api/myApi";
 
 
 type TemplateItemProps = {
@@ -16,15 +16,25 @@ const TemplateItem: React.FC<TemplateItemProps> = ({ id, name, htmlContent }) =>
   const [editHtml, setEditHtml] = useState(htmlContent);
   const [templateHTML, setTemplateHTML] = useState(htmlContent);
 
+  const [customData, setCustomData] = useState(""); // to JSON substitution
+
+
   const handleDownload = async () => {
     try {
-      const blob = await generatePdf(id);
+      let blob;
+      if(customData)
+        blob = await generatePdfWithSubstitution(id, customData);
+      else
+        blob = await generatePdf(id);
+
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
       a.download = `${name}.pdf`;
       a.click();
       window.URL.revokeObjectURL(url);
+        setCustomData("");
+
     } catch (err) {
       console.error("Failed to download PDF", err);
     } 
@@ -68,6 +78,13 @@ const TemplateItem: React.FC<TemplateItemProps> = ({ id, name, htmlContent }) =>
       dangerouslySetInnerHTML={{ __html: templateHTML }}
     />
     <div className={styles["card-buttons"]}>
+
+      <textarea
+        placeholder='JSON for substitution (Optional)'
+        value={customData}
+        onChange={(e) => setCustomData(e.target.value)}
+        className={styles.jsonInput}
+      />
       <button className={styles.downloadButton} onClick={handleDownload}>
         Download PDF
       </button>
