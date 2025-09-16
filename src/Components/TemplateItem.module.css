@@ -4,7 +4,10 @@
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 6px rgba(0,0,0,0.2);
+  max-width: 1500px;
+  margin: 0 auto;
+  margin-top: 60px;
 }
 
 .card-content {
@@ -60,7 +63,8 @@
 
 .editForm input,
 .editForm textarea {
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
   padding: 6px 8px;
   border: 1px solid #bbb;
   border-radius: 4px;
@@ -70,7 +74,7 @@
 }
 
 .editForm textarea {
-  min-height: 80px;
+  min-height: 120px;
 }
 
 .editForm button {
@@ -79,6 +83,8 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  width: 150px;
+  margin-left: 90%;
 }
 
 .editForm button:first-of-type {

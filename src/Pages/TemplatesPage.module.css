@@ -1,9 +1,25 @@
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* центрируем заголовок */
-  position: relative; /* для кнопки слева */
-  margin-bottom: 20px;
+.pageTitle {
+  font-family: 'Poppins', sans-serif; /* современный шрифт */
+  font-size: 48px;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 60px 0 40px 0;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+.pageTitle::after {
+  content: '';
+  display: block;
+  width: 100%; 
+  max-width: 400px;
+  height: 2px;
+  background-color: #ccc;
+  margin: 20px auto 40px auto;
+  border-radius: 1px;
 }
 
 .floatingButton {

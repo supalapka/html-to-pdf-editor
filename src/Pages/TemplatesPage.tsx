@@ -29,13 +29,13 @@ const TemplatesPage: React.FC = () => {
 
   return (
     <div>
-     <div className={styles.header}>
+     <div>
         <button
             className={styles.floatingButton}
             onClick={() => setSidebarOpen(true)}>
             + Create Template
         </button>
-        <h1>Templates</h1>
+<h1 className={styles.pageTitle}>Templates to PDF Editor</h1>
     </div>
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
